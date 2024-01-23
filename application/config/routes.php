@@ -53,9 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// daftar dari route kita
-// kiri -> yang ada di browser
-// kanan -> lokasi functionnya
+
 $route['task'] = 'Task_Controller/index';
 $route['login'] = 'Login_Controller/index';
 $route['activity/index'] = 'Activities_Controller/index';
