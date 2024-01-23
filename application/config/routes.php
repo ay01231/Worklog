@@ -58,3 +58,4 @@ $route['task'] = 'Task_Controller/index';
 // $route['login_page'] = 'Login_Controller/login';
 $route['activity/index'] = 'Activities_Controller/index';
 $route['activity/save'] = 'Activities_Controller/save';
+$route['activities/add_activities'] = 'Activities_Controller/add_activities';

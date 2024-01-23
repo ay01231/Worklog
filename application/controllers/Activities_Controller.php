@@ -2,14 +2,14 @@
 
 class Activities_Controller extends CI_Controller
 {
-    public function index()
+    public function add_activities()
     {
         // $attributes = array(
         //     'class' => 'activities/index' // Add your desired class for styling
         // );
         // echo form_open('activity/save', $attributes);
 
-        return $this->load->view('activities/index');
+        return $this->load->view('activities/add_activities');
     }
     public function date_not_exceeding_today($tanggal)
     {
@@ -38,7 +38,7 @@ class Activities_Controller extends CI_Controller
             // $this->load->view('form_view', $data);
             // var_dump($this->form_validation->error_array());
             // die();
-            $this->load->view('activities/index');
+            $this->load->view('activities/add_activities');
         } else {
             // Validation passed, process form data
             $tanggal = $this->input->post('tanggal'); // Get the valid date from input
