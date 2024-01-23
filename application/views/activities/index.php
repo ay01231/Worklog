@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <title>Form Input (One Row)</title>
     <style>
-        /* Adjust this style based on your preferences */
-        .form-row {
+        Adjust this style based on your preferences */ .form-row {
             display: flex;
             justify-content: flex-start;
             align-items: stretch;
@@ -30,18 +29,27 @@
 </head>
 
 <body>
-    <form action="<?= base_url('activity/save') ?>" method="post" class="form-row">
-        <label for="jenis_proyek">Jenis Proyek:</label>
-        <input type="text" name="jenis_proyek">
-        <label for="deskripsi">Deskripsi</label>
-        <textarea name="deskripsi" id="deskripsi" cols="30" rows="1" placeholder="Deskripsi Singkat"></textarea>
-        <label for="tanggal">Tanggal:</label>
-        <input type="date" name="tanggal" id="tanggal">
-        <label for="waktu_mulai">Waktu Mulai:</label>
-        <input type="time" name="waktu_mulai" id="waktu_mulai">
-        <label for="waktu_akhir">Waktu Akhir:</label>
-        <input type="time" name="waktu_akhir" id="waktu_akhir">
-        <input type="submit" value="Simpan">
+    <?php echo validation_errors(); ?>
+    <?php echo form_open(site_url("activity/save")); ?>
+    <!-- <form action="<?= base_url('activity/save') ?>" method="post" class="form-row"> -->
+    <label for="jenis_proyek">Jenis Proyek:</label>
+    <input type="text" name="jenis_proyek">
+    <label for="deskripsi">Deskripsi</label>
+    <textarea name="deskripsi" id="deskripsi" cols="30" rows="1" placeholder="Deskripsi Singkat"></textarea>
+    <label for="tanggal">Tanggal:</label>
+    <input type="date" name="tanggal" id="tanggal">
+    <label for="waktu_mulai">Waktu Mulai:</label>
+    <input type="time" name="waktu_mulai" id="waktu_mulai">
+    <label for="waktu_akhir">Waktu Akhir:</label>
+    <input type="time" name="waktu_akhir" id="waktu_akhir">
+    <input type="submit" value="Simpan">
+
+
+    <?php
+    if ($this->session->flashdata('success_message')) {
+        echo $this->session->flashdata('success_message');
+    }
+    ?>
     </form>
 </body>
 

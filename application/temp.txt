@@ -1,0 +1,1 @@
+        <!-- <input type="date" name="tanggal" id="tanggal" value="<?php isset($_POST['tanggal']) ? $_POST['tanggal'] : isset($date) ? $date : date('mm/dd/yy') ?>"> -->
