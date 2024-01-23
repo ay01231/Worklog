@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
-	<style type="text/css">
+	<!-- <style type="text/css">
 
 	::selection { background-color: #E13300; color: white; }
 	::-moz-selection { background-color: #E13300; color: white; }
@@ -74,13 +74,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 	}
-	</style>
+	</style> -->
 </head>
 <body>
 
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
+	<p>apa ini jadi halaman login?</p>
+
+	<button onClick="window.location.href = '<?php base_url();?>login_controller/index';return false;">Login</button>
+
+<!-- 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
@@ -93,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p> -->
 </div>
 
 </body>
