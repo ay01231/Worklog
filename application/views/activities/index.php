@@ -31,8 +31,6 @@
 
 <body>
     <form action="<?= base_url('activity/save') ?>" method="post" class="form-row">
-        <label for="jenis_proyek">Jenis Proyek:</label>
-        <input type="text" name="jenis_proyek">
         <label for="deskripsi">Deskripsi</label>
         <textarea name="deskripsi" id="deskripsi" cols="30" rows="1" placeholder="Deskripsi Singkat"></textarea>
         <label for="tanggal">Tanggal:</label>
@@ -43,6 +41,12 @@
         <input type="time" name="waktu_akhir" id="waktu_akhir">
         <input type="submit" value="Simpan">
     </form>
+
+    <p>
+        <?php $myvalue = $this->session->userdata('username');
+        $arr = explode(' ',trim($myvalue));
+        echo $arr[0]; ?>;
+    </p>
 </body>
 
 </html>
