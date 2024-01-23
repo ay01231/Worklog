@@ -1,16 +1,20 @@
 <?php
 class Login_Controller extends CI_Controller
 {
-    function __construct(){
-		parent::__construct();		
-		$this->load->model('User_model');
-	}
+    // first function to diexecute 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('User_model');
+    }
 
-    public function index() {
+    public function index()
+    {
         return $this->load->view('login/index');
     }
 
-    function login() {
+    public function login()
+    {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -21,17 +25,20 @@ class Login_Controller extends CI_Controller
             'password' => $password
         );
 
-        $loginCheck = $this->User_model->loginCheck("users", $where) -> num_rows();
-        if($loginCheck > 0) {
+        $userQuery = $this->User_model->loginCheck("users", $where);
+        $loginCheck = $userQuery->num_rows() > 0 ? true : false;
+        if ($loginCheck) {
+            $user = $userQuery->result();
             $data_session = array(
-                'username' => $username,
+                'username' => $user[0]->username,
+                'id' => $user[0]->id,
                 'status' => "login"
             );
 
             $this->session->set_userdata($data_session);
-            redirect(base_url("activity/index"));
+            redirect(base_url("activities/index"));
         } else {
-            echo("Username dan Password tidak terdaftar.");
+            echo ("Username dan Password tidak terdaftar.");
         }
     }
 }

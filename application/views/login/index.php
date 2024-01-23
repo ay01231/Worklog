@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+	<meta charset="UTF-8">
+	<title>Login</title>
 </head>
 
 <body>
-    <h1>Membuat Login Dengan CodeIgniter</h1>
-    <form action="<?= base_url('login_controller/login'); ?>" method="post">		
+	<h1>Membuat Login Dengan CodeIgniter</h1>
+	<form action="<?= base_url('login/post'); ?>" method="post">
 		<table>
 			<tr>
 				<td>Username</td>
@@ -25,4 +25,5 @@
 		</table>
 	</form>
 </body>
+
 </html>

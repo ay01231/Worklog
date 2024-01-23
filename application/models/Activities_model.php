@@ -18,4 +18,20 @@ class Activities_model extends CI_Model
 
         $this->db->insert('activities', $this);
     }
+
+    //function get all activities data from activities table
+    public function getAllActivities()
+    {
+        // $aktivitas = $this->get->post('aktivitas');
+
+        $query = $this->db->get('activities');
+        return $query->result();
+    }
+
+    public function getAllActivitiesByUserID($userID)
+    {
+        $this->db->where('user_id', $userID);
+        $query = $this->db->get('activities');
+        return $query->result();
+    }
 }

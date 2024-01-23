@@ -2,6 +2,44 @@
 
 class Activities_Controller extends CI_Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Activities_model');
+    }
+
+    public function index()
+    {
+        $this->load->model('Activities_model');
+
+        // username dari loginpage -> manggil model user
+        // butuh panggil daftar aktivitas -> manggil model aktivitas ✅
+        // butuh panggil view list -> manggil view list ✅
+
+        // butuh button add new -> adanya di view ❌
+        // butuh halaman detail -> view dari halaman detail ❌
+
+        // kalau usernamenya ada dan statusnya login -> ngelihat halaman
+        // else -> redirect ke login
+
+        $username = $this->session->userdata('username');
+        $status = $this->session->userdata('status');
+        $userId = $this->session->userdata('id');
+        if ($status == 'login' && $username != null && $userId != null) {
+            $activities = $this->Activities_model->getAllActivitiesByUserID($userId);
+            $this->load->view('activities/list', [
+
+                // kiri: nama variable
+                // kanan: variable dari db -> variable
+                'activities' => $activities,
+                'username' => $username,
+            ]);
+        } else {
+            redirect(base_url('login'));
+        }
+    }
+
+
     public function add_activities()
     {
         // $attributes = array(
@@ -53,3 +91,8 @@ class Activities_Controller extends CI_Controller
         }
     }
 }
+
+
+// MVC -> Model✅ View Controller
+// 1 model -> 1 controller
+// controller -> x model

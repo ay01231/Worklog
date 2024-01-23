@@ -30,8 +30,8 @@
 
 <body>
     <?php echo validation_errors(); ?>
-    <?php echo form_open(site_url("activity/save")); ?>
-    <!-- <form action="<?= base_url('activity/save') ?>" method="post" class="form-row"> -->
+    <?php echo form_open(site_url("activities/save")); ?>
+    <!-- <form action="<?= base_url('activities/save') ?>" method="post" class="form-row"> -->
     <label for="aktivitas">Aktivitas</label>
     <textarea name="aktivitas" id="aktivitas" cols="30" rows="1" placeholder="Deskripsi Aktivitas"></textarea>
     <label for="tanggal">Tanggal:</label>

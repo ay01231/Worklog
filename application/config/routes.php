@@ -54,8 +54,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+// kiri -> link
+// kanan -> controller/function
 $route['task'] = 'Task_Controller/index';
 $route['login'] = 'Login_Controller/index';
-$route['activity/index'] = 'Activities_Controller/index';
-$route['activity/save'] = 'Activities_Controller/save';
+$route['login/post'] = 'Login_Controller/login';
+$route['activities/index'] = 'Activities_Controller/index';
+$route['activities/save'] = 'Activities_Controller/save';
 $route['activities/add_activities'] = 'Activities_Controller/add_activities';
