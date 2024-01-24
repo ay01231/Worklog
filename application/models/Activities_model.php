@@ -7,6 +7,7 @@ class Activities_model extends CI_Model
     public $tanggal;
     public $waktu_mulai;
     public $waktu_akhir;
+    public $users_id;
 
     public function saveActivity()
     {
@@ -14,6 +15,7 @@ class Activities_model extends CI_Model
         $this->tanggal = $this->input->post('tanggal');
         $this->waktu_mulai = $this->input->post('waktu_mulai');
         $this->waktu_akhir = $this->input->post('waktu_akhir');
+        $this->users_id = $this->input->post('users_id');
 
         $this->db->insert('activities', $this);
     }

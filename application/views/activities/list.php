@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+</head> 
 
 <body>
     <h1>Hi, <?php echo $username ?></h1>
-    <table>
-        <thead>
-
-        </thead>
+    <table id="myTable" class="display">
         <tbody>
         <?php if (empty($activities)) : ?>
             <tr>
@@ -25,7 +22,6 @@
         <?php endif; ?>
         <?php foreach ($activities as $a) :?>
             <tr>
-                <td><?= $a->id; ?></td>
                 <td><?= $a->aktivitas; ?></td>
                 <td><?= $a->tanggal; ?></td>
                 <td><?= $a->waktu_mulai; ?></td>
@@ -35,7 +31,6 @@
                     <td><a class="btn btn-info" role="button" href="' . base_url('activities/edit/') .$a->id . '"><i class="fas fa-edit"></i>&nbsp;Edit Activities</a></td>
                     ');
                 ?>
-                <!-- Edit -->
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -31,6 +31,7 @@
 <body>
     <?php echo validation_errors(); ?>
     <?php echo form_open(site_url("activities/save")); ?>
+    <?php echo form_hidden('users_id', $users_id); ?>
     <!-- <form action="<?= base_url('activities/save') ?>" method="post" class="form-row"> -->
     <label for="aktivitas">Aktivitas</label>
     <textarea name="aktivitas" id="aktivitas" cols="30" rows="1" placeholder="Deskripsi Aktivitas"></textarea>
