@@ -37,15 +37,12 @@
                     <td> <?php echo $a->tanggal ?></td>
                     <td> <?php echo $a->waktu_mulai ?></td>
                     <td> <?php echo $a->waktu_akhir ?></td>
-                    <?php
-                    echo ('
-                    <td><a class="btn btn-info" role="button" href="' . base_url('activities/edit/') . $a->id . '"><i class="fas fa-edit"></i>&nbsp;Edit Activities</a></td>
-                    ');
-                    ?>
+                    <td> <a href="<?php echo base_url('activities/edit_activities/' . $a->id); ?>">Edit Activity</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <button onClick="window.location.href = '<?php echo base_url("activities/add_activities") ?>' ;return false;">Add New</button>
 </body>
 
 </html>
