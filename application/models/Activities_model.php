@@ -39,6 +39,16 @@ class Activities_model extends CI_Model
         return $data[0];
     }
 
+    public function getActivitiesByUsersID($users_id)
+    {
+
+        $this->db->where('users_id', $users_id);
+        $act = $this->db->get('activities');
+        $data = $act->result();
+
+        return $data;
+    }
+
     public function update_activity($id, $activities)
     {
         // Update the activity in the database based on $activity_id
@@ -47,8 +57,17 @@ class Activities_model extends CI_Model
         $this->db->update('activities', $activities);
     }
 
-    function update_data($where,$data,$table){
-		$this->db->where($where);
-		$this->db->update($table,$data);
-	}
+    function update_data($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+
+    function get_all_activities_by_user_id_and_date($users_id, $date)
+    {
+        $where = array('users_id' => $users_id, 'tanggal' => $date);
+        $this->db->where($where);
+        $query = $this->db->get('activities');
+        return $query->result();
+    }
 }

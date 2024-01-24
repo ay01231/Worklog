@@ -8,16 +8,29 @@ class Activities_Controller extends CI_Controller
         $this->load->model('Activities_model');
     }
 
+    function validateDate($date, $format = 'Y-m-d')
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        // The Y ( 4 digits year ) returns TRUE for any integer with any number of digits so changing the comparison from == to === fixes the issue.
+        return $d && $d->format($format) === $date;
+    }
+
     // function untuk menampilkan list aktivitas
     public function index()
     {
         $this->load->model('Activities_model');
+        parse_str($_SERVER['QUERY_STRING'], $_GET);
 
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
         $userId = $this->session->userdata('id');
         if ($status == 'login' && $username != null && $userId != null) {
-            $activities = $this->Activities_model->getAllActivities();
+            if (array_key_exists('date', $_GET) && $_GET['date'] != "" && $this->validateDate($_GET['date'])) {
+                $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, $_GET['date']);
+            } else {
+                $activities = $this->Activities_model->getActivitiesByUsersID($userId);
+            }
+            // $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, "2024-01-24");
             $this->load->view('activities/list', [
                 'activities' => $activities,
                 'username' => $username,
