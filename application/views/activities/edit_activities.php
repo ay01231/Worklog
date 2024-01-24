@@ -32,7 +32,6 @@
     <!-- <?php var_dump($activity) ?> -->
     <?php echo validation_errors(); ?>
     <?php echo form_open(site_url("activities/update")); ?>
-    <!-- <form action="<?= base_url('activities/update') ?>" method="post" class="form-row"> -->
     <input value="<?php echo $activity['id'] ?>" type="text" name="activity_id" hidden>
     <label for="aktivitas">Aktivitas</label>
     <textarea name="aktivitas" id="aktivitas" cols="30" rows="1"><?php echo $activity['aktivitas'] ?></textarea>

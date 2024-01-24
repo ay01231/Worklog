@@ -8,30 +8,17 @@ class Activities_Controller extends CI_Controller
         $this->load->model('Activities_model');
     }
 
+    // function untuk menampilkan list aktivitas
     public function index()
     {
         $this->load->model('Activities_model');
-
-        // username dari loginpage -> manggil model user
-        // butuh panggil daftar aktivitas -> manggil model aktivitas ✅
-        // butuh panggil view list -> manggil view list ✅
-
-        // butuh button add new -> adanya di view ❌
-        // butuh halaman detail -> view dari halaman detail ❌
-
-        // kalau usernamenya ada dan statusnya login -> ngelihat halaman
-        // else -> redirect ke login
 
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
         $userId = $this->session->userdata('id');
         if ($status == 'login' && $username != null && $userId != null) {
-            // $activities = $this->Activities_model->getAllActivitiesByUserID($userId);
             $activities = $this->Activities_model->getAllActivities();
             $this->load->view('activities/list', [
-
-                // kiri: nama variable
-                // kanan: variable dari db -> variable
                 'activities' => $activities,
                 'username' => $username,
             ]);
@@ -40,20 +27,17 @@ class Activities_Controller extends CI_Controller
         }
     }
 
-
+    // function untuk menampilkan form pembuatan aktivitas
     public function add_activities()
     {
         $users_id = $this->session->userdata("id");
-        // $attributes = array(
-        //     'class' => 'activities/index' // Add your desired class for styling
-        // );
-        // echo form_open('activity/save', $attributes);
-
 
         return $this->load->view('activities/add_activities', [
             'users_id' => $users_id
         ]);
     }
+
+    // function validasi jika tanggal diinput > tanggal hari ini
     public function date_not_exceeding_today($tanggal)
     {
         $today = date('mm/dd/yy'); // Get today's date in YYYY-MM-DD format
@@ -67,6 +51,7 @@ class Activities_Controller extends CI_Controller
         }
     }
 
+    // function validasi jika from_time > to_time
     public function time_not_valid()
     {
         $tanggal = $this->input->post('tanggal'); // Get the valid date from input
@@ -85,82 +70,35 @@ class Activities_Controller extends CI_Controller
         }
     }
 
+    // function untuk simpan data aktivitas
     public function save()
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        // response -> html? view
-        // echo 'Hello World!';
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required|callback_date_not_exceeding_today');
         $this->form_validation->set_rules('waktu_akhir', 'Waktu_Akhir', 'trim|required|callback_time_not_valid');
 
-        // var_dump($this->form_validation->run());
-        // die();
         if ($this->form_validation->run() == FALSE) {
-            // $data['errors'] = $this->form_validation->error_array();
-            // $this->load->view('form_view', $data);
-            // var_dump($this->form_validation->error_array());
-            // die();
             $this->load->view('activities/add_activities');
         } else {
-            $users_id = $this->input->post('users_id');
             // Validation passed, process form data
-            $tanggal = $this->input->post('tanggal'); // Get the valid date from input
-            // $waktu_mulai = $this->input->post('waktu_mulai');
-            // $waktu_akhir = $this->input->post('waktu_akhir');
-
-            // ... your code to handle the valid date and other submitted data ...
             $this->load->model('Activities_model');
             $this->Activities_model->saveActivity();
 
             $this->session->set_flashdata('success_message', 'Data berhasil disimpan!');
-            // redirect('activities/index');
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
 
 
-    public function getActivityById($id)
-    {
-        $this->db->where('id', $id);
-        return $this->db->get('activities')->row();
-    }
-
-
+    // function untuk get halaman edit aktivitas
     public function edit_activities($id)
     {
-        // function untuk halaman edit -> ambil datanya dulu
         $activity = $this->Activities_model->getActivitiesbyID($id);
         $this->load->view('activities/edit_activities', ['activity' => $activity]);
     }
 
-    public function edit($id)
-    {
-        // function untuk NGESAVE ke database 
-        // var_dump('jancok');
-        // die();
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required|callback_date_not_exceeding_today');
-        $this->form_validation->set_rules('waktu_akhir', 'Waktu_Akhir', 'trim|required|callback_time_not_valid');
-
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('activities/edit_activities');
-        } else {
-            $activity = $this->Activities_model->getActivitiesbyId($id);
-
-            $tanggal = $this->input->post('tanggal');
-            $this->load->model('Activities_model');
-            $this->Activities_model->updateActivity();
-
-            $this->session->set_flashdata('success_message', 'Data berhasil diedit!');
-
-            redirect($_SERVER['HTTP_REFERER']);
-        }
-    }
-
+    // function untuk update data aktivitas
     public function update()
     {
         // Set rules untuk validasi
