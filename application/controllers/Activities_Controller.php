@@ -30,7 +30,8 @@ class Activities_Controller extends CI_Controller
             } else {
                 $activities = $this->Activities_model->getActivitiesByUsersID($userId);
             }
-            // $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, "2024-01-24");
+            // var_dump($activities);
+            // die();
             $this->load->view('activities/list', [
                 'activities' => $activities,
                 'username' => $username,

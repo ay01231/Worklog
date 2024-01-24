@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php if (empty($activities)) : ?>
+            <?php if (empty($activities['data'])) : ?>
                 <tr>
                     <td colspan="6">
                         <div class="alert alert-danger" role="alert">
@@ -35,7 +35,7 @@
                     </td>
                 </tr>
             <?php endif; ?>
-            <?php foreach ($activities as $a) : ?>
+            <?php foreach ($activities['data'] as $a) : ?>
                 <tr>
                     <td> <?php echo $a->id ?></td>
                     <td> <?php echo $a->aktivitas ?></td>
@@ -45,6 +45,10 @@
                     <td> <a href="<?php echo base_url('activities/edit_activities/' . $a->id); ?>">Edit Activity</a></td>
                 </tr>
             <?php endforeach; ?>
+            <tr>
+                <td colspan="5">Total durasi aktivitas</td>
+                <td><?= $activities['totalHours']['total_time'] ?> jam</td>
+            </tr>
         </tbody>
     </table>
     <button onClick="window.location.href = '<?php echo base_url("activities/add_activities") ?>' ;return false;">Add New</button>

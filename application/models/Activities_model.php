@@ -45,8 +45,16 @@ class Activities_model extends CI_Model
         $this->db->where('users_id', $users_id);
         $act = $this->db->get('activities');
         $data = $act->result();
-
-        return $data;
+        $sqlCountHours = "SELECT
+                                round(sum(IF(TIMEDIFF(waktu_akhir, waktu_mulai) < 0, -ABS(HOUR(TIMEDIFF(waktu_akhir, waktu_mulai)) + MINUTE(TIMEDIFF(waktu_akhir, waktu_mulai)) / 60), HOUR(TIMEDIFF(waktu_akhir, waktu_mulai)) + MINUTE(TIMEDIFF(waktu_akhir, waktu_mulai)) / 60)), 1) AS total_time
+                            FROM activities
+                            WHERE users_id = ?;";
+        $getCountHours = $this->db->query($sqlCountHours, array($users_id))->result_array();
+        // var_dump($getCountHours);
+        return [
+            'data' => $data,
+            'totalHours' => $getCountHours[0]
+        ];
     }
 
     public function update_activity($id, $activities)
@@ -68,6 +76,16 @@ class Activities_model extends CI_Model
         $where = array('users_id' => $users_id, 'tanggal' => $date);
         $this->db->where($where);
         $query = $this->db->get('activities');
-        return $query->result();
+
+        $sqlCountHours = "SELECT
+                                round(sum(IF(TIMEDIFF(waktu_akhir, waktu_mulai) < 0, -ABS(HOUR(TIMEDIFF(waktu_akhir, waktu_mulai)) + MINUTE(TIMEDIFF(waktu_akhir, waktu_mulai)) / 60), HOUR(TIMEDIFF(waktu_akhir, waktu_mulai)) + MINUTE(TIMEDIFF(waktu_akhir, waktu_mulai)) / 60)), 1) AS total_time
+                            FROM activities
+                            WHERE users_id = ? and tanggal = ?;";
+        $getCountHours = $this->db->query($sqlCountHours, array($users_id, $date))->result_array();
+
+        return [
+            'data' => $query->result(),
+            'totalHours' => $getCountHours[0]
+        ];
     }
 }
