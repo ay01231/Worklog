@@ -32,11 +32,11 @@
             <?php endif; ?>
             <?php foreach ($activities as $a) : ?>
                 <tr>
-                    <td> <?php echo $activity->id ?></td>
-                    <td> <?php echo $activity->aktivitas ?></td>
-                    <td> <?php echo $activity->tanggal ?></td>
-                    <td> <?php echo $activity->waktu_mulai ?></td>
-                    <td> <?php echo $activity->waktu_akhir ?></td>
+                    <td> <?php echo $a->id ?></td>
+                    <td> <?php echo $a->aktivitas ?></td>
+                    <td> <?php echo $a->tanggal ?></td>
+                    <td> <?php echo $a->waktu_mulai ?></td>
+                    <td> <?php echo $a->waktu_akhir ?></td>
                     <?php
                     echo ('
                     <td><a class="btn btn-info" role="button" href="' . base_url('activities/edit/') . $a->id . '"><i class="fas fa-edit"></i>&nbsp;Edit Activities</a></td>
