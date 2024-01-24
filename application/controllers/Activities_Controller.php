@@ -34,6 +34,7 @@ class Activities_Controller extends CI_Controller
             $this->load->view('activities/list', [
                 'activities' => $activities,
                 'username' => $username,
+                'selectedDate' => array_key_exists('date', $_GET) ? $_GET['date'] : ''
             ]);
         } else {
             redirect(base_url('login'));

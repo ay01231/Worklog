@@ -9,6 +9,11 @@
 
 <body>
     <h1>Hi, <?php echo $username ?></h1>
+    <form id="filterForm" method="get" action="<?= base_url('activities/index') ?>">
+        <label for="filterDate">Filter by Date:</label>
+        <input type="date" id="filterDate" name="date" value="<?= $selectedDate ?>">
+        <button type="submit">Filter</button>
+    </form>
     <table id="myTable" class="display">
         <thead>
             <tr>
