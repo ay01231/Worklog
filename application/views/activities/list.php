@@ -14,6 +14,9 @@
         <input type="date" id="filterDate" name="date" value="<?= $selectedDate ?>">
         <button type="submit">Filter</button>
     </form>
+    <?php if (array_key_exists('date', $_GET) && $_GET['date'] != '') : ?>
+        <a href="<?= base_url('activities/index') ?>">Reset Filter</a>
+    <?php endif; ?>
     <table id="myTable" class="display">
         <thead>
             <tr>
