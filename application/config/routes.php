@@ -62,3 +62,6 @@ $route['login/post'] = 'Login_Controller/login';
 $route['activities/index'] = 'Activities_Controller/index';
 $route['activities/save'] = 'Activities_Controller/save';
 $route['activities/add_activities'] = 'Activities_Controller/add_activities';
+$route['activities/edit'] = 'Activities_Controller/edit';
+$route['activities/edit_activities/(:any)'] = 'Activities_Controller/edit_activities/$1';
+$route['activities/update'] = 'Activities_Controller/update';

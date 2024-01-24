@@ -4,7 +4,6 @@ class Activities_model extends CI_Model
 {
     public $id;
     public $aktivitas;
-    public $jenis_proyek;
     public $tanggal;
     public $waktu_mulai;
     public $waktu_akhir;
@@ -28,10 +27,26 @@ class Activities_model extends CI_Model
         return $query->result();
     }
 
-    public function getAllActivitiesByUserID($userID)
+    public function getActivitiesbyID($id)
     {
-        $this->db->where('users_id', $userID);
-        $query = $this->db->get('activities');
-        return $query->result();
+
+        $this->db->where('id', $id);
+        $act = $this->db->get('activities');
+        $data = $act->result_array();
+
+        return $data[0];
     }
+
+    public function update_activity($id, $activities)
+    {
+        // Update the activity in the database based on $activity_id
+        // Use $this->db->update() or another suitable method
+        $this->db->where('id', $id);
+        $this->db->update('activities', $activities);
+    }
+
+    function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 }
