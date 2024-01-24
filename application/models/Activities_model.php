@@ -4,7 +4,6 @@ class Activities_model extends CI_Model
 {
     public $id;
     public $aktivitas;
-    public $jenis_proyek;
     public $tanggal;
     public $waktu_mulai;
     public $waktu_akhir;

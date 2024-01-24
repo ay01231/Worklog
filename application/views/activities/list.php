@@ -9,14 +9,37 @@
 
 <body>
     <h1>Hi, <?php echo $username ?></h1>
-    <tr>
-        <td> <?php var_dump($activities) ?></td>
-        <td> <?php 
-        echo "<pre>";
-        var_dump($activities->$row["id"]);
-        echo "</pre>"; ?></td>
-        <!-- <td> <a href="<?php echo base_url('activities/edit/'.$activities->activities["id"]);?>">Edit</a></td> -->
-    </tr>
+    <table>
+        <thead>
+
+        </thead>
+        <tbody>
+        <?php if (empty($activities)) : ?>
+            <tr>
+                <td colspan="7">
+                    <div class="alert alert-danger" role="alert">
+                        Data not found!
+                    </div>
+                </td>
+            </tr>
+        <?php endif; ?>
+        <?php foreach ($activities as $a) :?>
+            <tr>
+                <td><?= $a->id; ?></td>
+                <td><?= $a->aktivitas; ?></td>
+                <td><?= $a->tanggal; ?></td>
+                <td><?= $a->waktu_mulai; ?></td>
+                <td><?= $a->waktu_akhir; ?></td>
+                <?php
+                    echo ('
+                    <td><a class="btn btn-info" role="button" href="' . base_url('activities/edit/') .$a->id . '"><i class="fas fa-edit"></i>&nbsp;Edit Activities</a></td>
+                    ');
+                ?>
+                <!-- Edit -->
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 
 </html>     
