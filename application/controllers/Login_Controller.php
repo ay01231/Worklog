@@ -41,4 +41,9 @@ class Login_Controller extends CI_Controller
             echo ("Username dan Password tidak terdaftar.");
         }
     }
+
+    function logout(){
+        $this->session->sess_destroy();
+        redirect(base_url('landing_page'));
+    }
 }

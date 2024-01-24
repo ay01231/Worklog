@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 08:53 AM
+-- Generation Time: Jan 24, 2024 at 04:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,15 +32,17 @@ CREATE TABLE `activities` (
   `aktivitas` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu_mulai` time NOT NULL,
-  `waktu_akhir` time NOT NULL
+  `waktu_akhir` time NOT NULL,
+  `users_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`id`, `aktivitas`, `tanggal`, `waktu_mulai`, `waktu_akhir`) VALUES
-(1, 'Meeting bersama tim Developer', '2024-01-22', '16:30:00', '17:00:00');
+INSERT INTO `activities` (`id`, `aktivitas`, `tanggal`, `waktu_mulai`, `waktu_akhir`, `users_id`) VALUES
+(1, 'Meeting bersama tim Developer', '2024-01-22', '16:30:00', '17:00:00', 1),
+(2, 'Meeting buat dapetin ID Activities', '2024-01-24', '10:15:00', '10:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -69,13 +71,15 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 -- Indexes for table `activities`
 --
 ALTER TABLE `activities`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_activities_users` (`users_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -85,13 +89,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `activities`
+--
+ALTER TABLE `activities`
+  ADD CONSTRAINT `fk_activities_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

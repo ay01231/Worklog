@@ -30,7 +30,7 @@ class Activities_model extends CI_Model
 
     public function getAllActivitiesByUserID($userID)
     {
-        $this->db->where('user_id', $userID);
+        $this->db->where('users_id', $userID);
         $query = $this->db->get('activities');
         return $query->result();
     }
