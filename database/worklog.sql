@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 04:44 AM
+-- Generation Time: Jan 24, 2024 at 10:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,10 @@ CREATE TABLE `activities` (
 
 INSERT INTO `activities` (`id`, `aktivitas`, `tanggal`, `waktu_mulai`, `waktu_akhir`, `users_id`) VALUES
 (1, 'Meeting bersama tim Developer', '2024-01-22', '16:30:00', '17:00:00', 1),
-(2, 'Meeting buat dapetin ID Activities', '2024-01-24', '10:15:00', '10:30:00', 1);
+(2, 'Meeting buat dapetin ID Activities', '2024-01-24', '10:15:00', '10:30:00', 1),
+(3, 'Meeting ngambil ID Activities yang bener', '2024-01-24', '12:00:00', '13:00:00', 1),
+(5, 'tes', '2024-01-24', '00:00:00', '13:00:00', 1),
+(6, 'daily standup', '2024-01-24', '07:01:00', '14:01:00', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
