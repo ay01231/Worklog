@@ -4,9 +4,9 @@ class Activities_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if (!isset($this->session->userdata['username'])){
-			redirect(base_url(""));
-		}
+        if (!isset($this->session->userdata['username'])) {
+            redirect(base_url(""));
+        }
         $this->load->model('Activities_model');
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
@@ -127,7 +127,8 @@ class Activities_Controller extends CI_Controller
         }
     }
 
-    function logout(){
+    function logout()
+    {
         $this->session->sess_destroy();
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><span><strong>Success.</strong> Berhasil Logout.</span></div>');
         redirect(base_url("login"));
@@ -145,7 +146,7 @@ class Activities_Controller extends CI_Controller
     public function update()
     {
         // Set rules untuk validasi
-        $this->form_validation->set_rules('aktivitas', 'AKtivitas', 'trim|required');
+        $this->form_validation->set_rules('aktivitas', 'Aktivitas', 'trim|required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required|callback_date_not_exceeding_today');
         $this->form_validation->set_rules('waktu_mulai', 'Waktu_mulai', 'trim|required');
         $this->form_validation->set_rules('waktu_akhir', 'Waktu_Akhir', 'trim|required|callback_time_not_valid');
