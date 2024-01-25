@@ -5,6 +5,9 @@ class Login_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if (isset($this->session->userdata['username'])){
+			redirect(base_url("activities/index"));
+		}
         $this->load->model('User_model');
     }
 
@@ -38,13 +41,14 @@ class Login_Controller extends CI_Controller
             $this->session->set_userdata($data_session);
             redirect(base_url("activities/index"));
         } else {
-            echo ("Username dan Password tidak terdaftar.");
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><span><strong>Username belum terdaftar atau password salah.</strong></span></div>');
+            redirect(base_url("login"));
         }
     }
 
-    function logout()
-    {
-        $this->session->sess_destroy();
-        redirect(base_url('login'));
-    }
+    // function logout(){
+    //     $this->session->sess_destroy();
+    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><span><strong>Success.</strong> Berhasil Logout.</span></div>');
+    //     redirect(base_url(""));
+    // }
 }

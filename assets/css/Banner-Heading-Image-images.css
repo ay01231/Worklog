@@ -1,0 +1,16 @@
+.fit-cover {
+  object-fit: cover;
+}
+
+.gradient-text {
+}
+
+h1 {
+}
+
+.linear-gradient {
+  background-image: linear-gradient(to right, #fe0000 0%, #fe5d05 11%, #fba85a 22%, #ec6e44 33%, #d267be 44%, #a736a9 53%, #793ccc 65%, #44979e 77%, #6ad1ac 100%);
+  /*-webkit-background-clip: text;*/
+  /*color: transparent;*/
+}
+

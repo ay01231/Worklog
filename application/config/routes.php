@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['404_override'] = '';
+$route['404_override'] = 'Custom404';
 $route['translate_uri_dashes'] = FALSE;
 
 
@@ -65,4 +65,4 @@ $route['activities/add_activities'] = 'Activities_Controller/add_activities';
 $route['activities/edit'] = 'Activities_Controller/edit';
 $route['activities/edit_activities/(:any)'] = 'Activities_Controller/edit_activities/$1';
 $route['activities/update'] = 'Activities_Controller/update';
-$route['logout'] = 'Login_Controller/logout';
+$route['logout'] = 'Activities_Controller/logout';

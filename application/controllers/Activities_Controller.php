@@ -4,6 +4,9 @@ class Activities_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if (!isset($this->session->userdata['username'])){
+			redirect(base_url(""));
+		}
         $this->load->model('Activities_model');
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
@@ -118,9 +121,16 @@ class Activities_Controller extends CI_Controller
             $this->load->model('Activities_model');
             $this->Activities_model->saveActivity();
 
-            $this->session->set_flashdata('success_message', 'Data berhasil disimpan!');
-            redirect($_SERVER['HTTP_REFERER']);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><span><strong>Success.</strong> Activity berhasil ditambahkan.</span></div>');
+            redirect('activities/index');
+            // redirect($_SERVER['HTTP_REFERER']);
         }
+    }
+
+    function logout(){
+        $this->session->sess_destroy();
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><span><strong>Success.</strong> Berhasil Logout.</span></div>');
+        redirect(base_url("login"));
     }
 
 
