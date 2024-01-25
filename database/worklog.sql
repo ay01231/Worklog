@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 10:05 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 25, 2024 at 09:06 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,18 +34,27 @@ CREATE TABLE `activities` (
   `waktu_mulai` time NOT NULL,
   `waktu_akhir` time NOT NULL,
   `users_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `activities`
 --
 
 INSERT INTO `activities` (`id`, `aktivitas`, `tanggal`, `waktu_mulai`, `waktu_akhir`, `users_id`) VALUES
-(1, 'Meeting bersama tim Developer', '2024-01-22', '16:30:00', '17:00:00', 1),
-(2, 'Meeting buat dapetin ID Activities', '2024-01-24', '10:15:00', '10:30:00', 1),
-(3, 'Meeting ngambil ID Activities yang bener', '2024-01-24', '12:00:00', '13:00:00', 1),
-(5, 'tes', '2024-01-24', '00:00:00', '13:00:00', 1),
-(6, 'daily standup', '2024-01-24', '07:01:00', '14:01:00', 1);
+(13, 'mika yudha ajeng jois ivy. yey', '2024-01-25', '08:27:00', '14:27:00', 2),
+(14, 'yeuahdousedaw', '2024-01-25', '08:29:00', '14:29:00', 1),
+(15, 'test', '2024-01-25', '08:43:00', '08:45:00', 2),
+(16, 'adawdsw', '2024-01-25', '10:59:00', '12:59:00', 2),
+(17, 'asdawdas', '2024-01-25', '11:32:00', '15:32:00', 1),
+(18, 'tes', '2024-01-24', '11:40:00', '12:40:00', 2),
+(19, 'lagi makan di icon pondok indah', '2024-01-23', '09:00:00', '13:15:00', 2),
+(20, 'sdfsd', '2024-01-25', '14:39:00', '19:39:00', 2),
+(21, 'asdawds', '2024-01-25', '14:42:00', '14:43:00', 2),
+(22, 'asdaswdxzf', '2024-01-25', '14:41:00', '20:39:00', 2),
+(23, 'asdawdsdswad', '2024-01-25', '03:39:00', '20:40:00', 2),
+(24, 'awdaswdwasd', '2024-01-25', '14:43:00', '20:40:00', 2),
+(25, 'awdsaswda', '2024-01-25', '16:40:00', '19:40:00', 2),
+(27, 'awdasdwawdasdwsdawdsdawdsdadsadw', '2024-01-25', '15:00:00', '20:00:00', 4);
 
 -- --------------------------------------------------------
 
@@ -57,14 +66,16 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'mikhael.natalnael', 'passwordmika');
+(1, 'mikhael.natalnael', 'passwordmika'),
+(2, 'yudhazulkarnaen', 'passwordyudha'),
+(4, 'richiemartin', 'passwordrichie');
 
 --
 -- Indexes for dumped tables
@@ -92,13 +103,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
