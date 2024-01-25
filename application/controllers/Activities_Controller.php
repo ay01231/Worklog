@@ -47,6 +47,7 @@ class Activities_Controller extends CI_Controller
         }
 
         $activities = $this->Activities_model->getActivitiesByUsersID($userId);
+
         $this->load->view('activities/list', [
             'activities' => $activities,
             'username' => $username,

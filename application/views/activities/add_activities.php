@@ -34,7 +34,7 @@
     <?php echo form_hidden('users_id', $users_id); ?>
     <!-- <form action="<?= base_url('activities/save') ?>" method="post" class="form-row"> -->
     <label for="aktivitas">Aktivitas</label>
-    <textarea name="aktivitas" id="aktivitas" cols="30" rows="1" placeholder="Deskripsi Aktivitas"></textarea>
+    <textarea name="aktivitas" id="aktivitas" cols="30" rows="1" placeholder="Deskripsi Aktivitas" minLength=20, maxlength=100></textarea>
     <label for="tanggal">Tanggal:</label>
     <input type="date" name="tanggal" id="tanggal">
     <label for="waktu_mulai">Waktu Mulai:</label>
