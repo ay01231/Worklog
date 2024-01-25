@@ -41,7 +41,8 @@
                                             <label class="form-label" style="color: var(--bs-emphasis-color);">Description&nbsp;<span style="color: rgb(255,16,1);">*</span></label>
                                             <div class="mb-3">
                                             <input value="<?php echo $activity['id'] ?>" type="text" name="activity_id" hidden>
-                                                <textarea class="form-control" id="aktivitas" name="aktivitas" rows="6" placeholder="Enter Description..."><?php echo $activity['aktivitas'] ?></textarea></div>
+                                                <textarea class="form-control" id="aktivitas" name="aktivitas" rows="6" placeholder="Isi Deskripsi dengan minimal 20 karakter" minLength=20 maxLength=100><?php echo $activity['aktivitas'] ?></textarea>
+                                            </div>
                                                 <label class="form-label" style="color: var(--bs-emphasis-color);">Date&nbsp;<span style="color: rgb(255,16,1);">*</span></label>
                                                 
                                                 <input class="form-control" value="<?php echo $activity['tanggal'] ?>" type="date" name="tanggal" id="tanggal" style="margin-bottom: 18px;">

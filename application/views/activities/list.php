@@ -95,9 +95,11 @@
                 </div>
                 <?= $this->session->flashdata('message'); ?>
                 <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info" style="text-align: center;">
-                    
-                            <?php if (empty($activities['data'])) : ?>
-                                <table class="table my-0 display">
+                <?php if (empty($activities['data'])) { ?>
+                    <table class="table my-0 display">
+                <?php } else { ?>
+                    <table class="table my-0 display" id="myTable">
+                <?php } ?>
                         <thead class="table-dark">
                             <tr>
                                 <th>No</th>
@@ -109,6 +111,7 @@
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
+                            <?php if (empty($activities['data'])) : ?>
                                 <tr>
                                     <td colspan="6">
                                         <div class="alert alert-danger" role="alert">
@@ -120,18 +123,6 @@
                             <?php
                             $no = 1;
                             foreach ($activities['data'] as $a) : ?>
-                            <table class="table my-0 display" id="myTable">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>No</th>
-                                <th style="/*max-width: -2px;*/">Activity</th>
-                                <th>Date</th>
-                                <th>Start Time</th>
-                                <th>End Time</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody style="vertical-align: middle;">
                                     <tr>
                                         <td><?= $no++; ?></td>
                                         <td class="text-start" style="padding-left: 25px;max-width: 270px;"><?php echo $a->aktivitas ?></td>
