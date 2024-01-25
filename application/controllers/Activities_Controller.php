@@ -24,22 +24,34 @@ class Activities_Controller extends CI_Controller
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
         $userId = $this->session->userdata('id');
-        if ($status == 'login' && $username != null && $userId != null) {
-            if (array_key_exists('date', $_GET) && $_GET['date'] != "" && $this->validateDate($_GET['date'])) {
-                $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, $_GET['date']);
-            } else {
-                $activities = $this->Activities_model->getActivitiesByUsersID($userId);
-            }
-            // var_dump($activities);
-            // die();
-            $this->load->view('activities/list', [
-                'activities' => $activities,
-                'username' => $username,
-                'selectedDate' => array_key_exists('date', $_GET) ? $_GET['date'] : ''
-            ]);
-        } else {
+        if ($status != 'login' && $username == null && $userId == null) {
             redirect(base_url('login'));
         }
+        if (array_key_exists('date', $_GET) && $_GET['date'] != "") {
+            if ($this->validateDate($_GET['date'])) {
+                $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, $_GET['date']);
+                $this->load->view('activities/list', [
+                    'activities' => $activities,
+                    'username' => $username,
+                    'selectedDate' => array_key_exists('date', $_GET) ? $_GET['date'] : ''
+                ]);
+                return;
+            }
+
+            // validasi tanggal yang error
+        }
+
+        $activities = $this->Activities_model->getActivitiesByUsersID($userId);
+        $this->load->view('activities/list', [
+            'activities' => $activities,
+            'username' => $username,
+            'selectedDate' => array_key_exists('date', $_GET) ? $_GET['date'] : ''
+        ]);
+        return;
+
+        // var_dump($activities);
+        // die();
+
     }
 
     // function untuk menampilkan form pembuatan aktivitas
@@ -129,6 +141,7 @@ class Activities_Controller extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
+
             // Validasi gagal, tampilkan halaman edit lagi
             $this->load->view('activities/edit_activities');
         } else {
