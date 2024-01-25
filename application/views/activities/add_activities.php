@@ -79,10 +79,9 @@
                                         </div>
                                         <div class="mb-3"></div>
                                         <div class="text-end">
-                                            <a class="btn btn-secondary" role="button"
-                                                style="background: rgb(194,197,207);margin-right: 8px;"
-                                                href="<?php echo base_url('activities/index') ?>">Cancel</a>
-                                            <input class="btn btn-primary" type="submit" value="Submit">
+                                        <button class="btn btn-secondary" type="button"
+                                                onclick="window.location.href = '<?php echo base_url('activities/index') ?>';return false;">Cancel</button>
+                                            <input class="btn btn-primary tombol-hapus" type="submit" value="Submit">
                                         </div>
                                         <?php echo form_close(); ?>
 

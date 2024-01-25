@@ -14,6 +14,7 @@
     <style>
         .dataTables_wrapper .dt-buttons {
             float: right;
+            margin-bottom: 10px;
         }
 
         @media print {
@@ -34,7 +35,7 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css"> -->
 
 </head>
 
@@ -68,7 +69,7 @@
     <div class="container-fluid linear-gradient" style="padding: 45px;">
         <div class="card shadow">
 
-            <div class="card-body" style="margin: 13px;">
+            <div class="card-body" style="margin: 15px;">
                 <div class="row">
                     <div class="col-md-12 text-nowrap">
                         <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
@@ -93,7 +94,7 @@
                                 <button class="btn btn-secondary" type="submit">Filter</button>
                             </form>
                             <?php if (array_key_exists('date', $_GET) && $_GET['date'] != ''): ?>
-                                <a href="<?= base_url('activities/index') ?>">Reset Filter</a>
+                                <a style="margin-top: 25px; margin-left: 5px;" href="<?= base_url('activities/index') ?>">Reset Filter</a>
                             <?php endif; ?>
                         </div>
                         <div class="col-md-3 d-xxl-flex justify-content-end align-items-xxl-center text-nowrap"
@@ -112,9 +113,9 @@
                 <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info"
                     style="text-align: center;">
                     <?php if (empty($activities['data'])) { ?>
-                        <table class="table my-0 display">
+                        <table class="table my-0">
                         <?php } else { ?>
-                            <table class="table my-0 display" id="myTable">
+                            <table class="table my-0" id="myTable">
                             <?php } ?>
                             <thead class="table-dark">
                                 <tr>
@@ -155,7 +156,7 @@
                                         <td>
                                             <?php echo $a->waktu_akhir ?>
                                         </td>
-                                        <td><a class="btn btn-secondary" role="button" style="margin-right: 10px;"
+                                        <td><a class="btn btn-secondary" role="button"
                                                 href="<?php echo base_url('activities/edit_activities/' . $a->id); ?>">Edit&nbsp;&nbsp;<svg
                                                     xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24"
                                                     width="1em" fill="currentColor" style="font-size: 15px;">
@@ -208,13 +209,19 @@
         $('#myTable').DataTable({
             "searching": false,
             "dom": 'Bfrtip',
-            "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
+            "buttons": [{ extend: 'copy', className: 'btn btn-primary glyphicon glyphicon-duplicate' },
+    { extend: 'csv', className: 'btn btn-primary glyphicon glyphicon-save-file' },
+    { extend: 'excel', className: 'btn btn-primary glyphicon glyphicon-list-alt' },
+    { extend: 'pdf', className: 'btn btn-primary glyphicon glyphicon-file' },
+    { extend: 'print', className: 'btn btn-primary glyphicon glyphicon-print' }],
             columnDefs: [
                 {
                     className: "dt-center",
                     targets: [0, 1, 2, 3, 4, 5]
-                }]
+                }],
+            
         });
+        table.buttons().appendTo( '#example_wrapper .col-md-6:eq(0) btn btn-primary' );
     });
 </script>
 

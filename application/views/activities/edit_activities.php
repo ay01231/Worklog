@@ -124,6 +124,11 @@
     </footer>
     <script src="<?= base_url(''); ?>assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= base_url(''); ?>assets/js/theme.js"></script>
+    <script>
+        // Set max date to today
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("tanggal").setAttribute("max", today);
+    </script>
 </body>
 
 </html>

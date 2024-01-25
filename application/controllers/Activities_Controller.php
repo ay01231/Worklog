@@ -99,7 +99,7 @@ class Activities_Controller extends CI_Controller
         $to_time = strtotime($tanggal . ' ' . $waktu_akhir);
 
         if ($to_time < $from_time) {
-            $this->form_validation->set_message('time_not_valid', 'waktu akhir tidak valid');
+            $this->form_validation->set_message('time_not_valid', '<div class="alert alert-danger" role="alert"><span><strong>Waktu akhir tidak valid.</strong> Waktu akhir kurang dari waktu awal, harap masukkan dengan benar!</span></div>');
             return false;
         } else {
             return true;
@@ -114,8 +114,12 @@ class Activities_Controller extends CI_Controller
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required|callback_date_not_exceeding_today');
         $this->form_validation->set_rules('waktu_akhir', 'Waktu_Akhir', 'trim|required|callback_time_not_valid');
 
+        $users_id = $this->session->userdata("id");
+
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('activities/add_activities');
+            return $this->load->view('activities/add_activities', [
+                'users_id' => $users_id
+            ]);
         } else {
             // Validation passed, process form data
             $this->load->model('Activities_model');
@@ -156,11 +160,14 @@ class Activities_Controller extends CI_Controller
         // var_dump($activities);
         // die();
 
+        $users_id = $this->session->userdata("id");
+
 
         if ($this->form_validation->run() == FALSE) {
 
             // Validasi gagal, tampilkan halaman edit lagi
-            $this->load->view('activities/edit_activities');
+            $activity = $this->Activities_model->getActivitiesbyID($id);
+            $this->load->view('activities/edit_activities', ['activity' => $activity]);
         } else {
             // Validasi berhasil, lakukan penyimpanan data yang diedit
             // $this->Activites_model->update_data($id);
