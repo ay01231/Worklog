@@ -40,7 +40,7 @@
                                         <?php echo form_open(site_url("activities/save")); ?>
                                         <?php echo form_hidden('users_id', $users_id); ?>
                                         <label class="form-label" style="color: var(--bs-emphasis-color);">Description&nbsp;<span style="color: rgb(255,16,1);">*</span></label>
-                                        <div class="mb-3"><textarea class="form-control" id="message-2" name="aktivitas" rows="6" placeholder="Description"></textarea></div>
+                                        <div class="mb-3"><textarea class="form-control" id="message-2" name="aktivitas" rows="6" placeholder="Description" minLength=20 maxLength=100></textarea></div>
                                         <label class="form-label" style="color: var(--bs-emphasis-color);">Date&nbsp;<span style="color: rgb(255,16,1);">*</span></label>
                                         <input class="form-control" type="date" name="tanggal" style="margin-bottom: 18px;">
                                         <div class="row">
