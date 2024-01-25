@@ -1,11 +1,16 @@
 <?php
-
 class Activities_Controller extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         $this->load->model('Activities_model');
+        $username = $this->session->userdata('username');
+        $status = $this->session->userdata('status');
+        $userId = $this->session->userdata('id');
+        if ($status != 'login' && $username == null && $userId == null) {
+            redirect(base_url('login'));
+        }
     }
 
     function validateDate($date, $format = 'Y-m-d')
@@ -24,9 +29,9 @@ class Activities_Controller extends CI_Controller
         $username = $this->session->userdata('username');
         $status = $this->session->userdata('status');
         $userId = $this->session->userdata('id');
-        if ($status != 'login' && $username == null && $userId == null) {
-            redirect(base_url('login'));
-        }
+        // if ($status != 'login' && $username == null && $userId == null) {
+        //     redirect(base_url('login'));
+        // }
         if (array_key_exists('date', $_GET) && $_GET['date'] != "") {
             if ($this->validateDate($_GET['date'])) {
                 $activities = $this->Activities_model->get_all_activities_by_user_id_and_date($userId, $_GET['date']);

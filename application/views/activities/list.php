@@ -55,6 +55,7 @@
         </tbody>
     </table>
     <button onClick="window.location.href = '<?php echo base_url("activities/add_activities") ?>' ;return false;">Add New</button>
+    <button onClick="window.location.href = '<?php echo base_url("logout") ?>' ;return false;">Logout</button>
 </body>
 
 </html>
