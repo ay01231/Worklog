@@ -14,7 +14,7 @@
 
 <body id="page-top">
     <nav class="navbar navbar-expand-md bg-body py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="summary.html"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 16px;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="<?= base_url(''); ?>"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 16px;">
                         <path d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
                     </svg></span><span><strong>Worklog</strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -34,7 +34,7 @@
                             <p class="m-0">404</p>
                         </div>
                         <p class="text-dark mb-5 lead">Page Not Found</p>
-                        <p class="text-black-50 mb-0">Untuk saat ini halaman belum tersedia.<br>Harap perhatikan apakah ada kesalahan dalam menulis alamat.</p><a href="/">← Back to Dashboard</a>
+                        <p class="text-black-50 mb-0">Untuk saat ini halaman belum tersedia.<br>Harap perhatikan apakah ada kesalahan dalam menulis alamat.</p><a href="<?= base_url(''); ?>">← Back to Dashboard</a>
                     </div>
                 </div>
             </div>
