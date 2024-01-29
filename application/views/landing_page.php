@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mini Project</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css">
     <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
@@ -21,12 +22,20 @@
 
 <body>
     <nav class="navbar navbar-expand-md py-3" data-bs-theme="light">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="<?= base_url('') ?>"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 15px;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="<?= base_url('') ?>"><span
+                    class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em"
+                        fill="currentColor" style="font-size: 15px;">
                         <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
-                    </svg></span><span class="fw-semibold">Worklog</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navcol-5">
-                <ul class="navbar-nav ms-auto"></ul><button class="btn btn-primary ms-md-2" onClick="window.location.href = '<?php echo base_url('login') ?>';return false;">Login</button>
+                        <path
+                            d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z">
+                        </path>
+                    </svg></span><span class="fw-semibold">Worklog</span></a><button data-bs-toggle="collapse"
+                class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto"></ul><button class="btn btn-primary ms-md-2"
+                    onClick="window.location.href = '<?php echo base_url('login') ?>';return false;">Login</button>
             </div>
         </div>
     </nav>
@@ -34,8 +43,14 @@
     <section class="py-4 py-xl-5 linear-gradient">
         <div class="container">
             <div class="text-center text-bg-light border rounded p-4 p-lg-5" style="margin: 60px;">
-                <h1 class="fw-bold mb-4">TIME Tracking for<br>professionals employees</h1>
-                <p class="fw-bold mb-2"><span style="font-weight: normal !important; color: rgb(55, 65, 81);">Aplikasi Worklog adalah solusi perangkat lunak yang dirancang untuk membantu individu atau tim dalam melacak dan mengelola catatan waktu kerja mereka. Dengan menggunakan aplikasi ini, pengguna dapat mencatat aktivitas kerja mereka, menyusun jadwal, dan memonitor waktu yang dihabiskan untuk setiap tugas atau proyek.</span></p><a class="btn btn-primary fs-5 py-2 px-4" role="button" style="margin-top: 15px;" href="<?= base_url('login') ?>">Login&nbsp;&nbsp;<i class="far fa-arrow-alt-circle-right"></i></a>
+                <h1 class="fw-bold mb-4">Time Tracking for<br>Professional Employees</h1>
+                <p class="fw-bold mb-2"><span style="font-weight: normal !important; color: rgb(55, 65, 81);">Aplikasi
+                        Worklog adalah solusi perangkat lunak yang dirancang untuk membantu individu atau tim dalam
+                        melacak dan mengelola catatan waktu kerja mereka. Dengan menggunakan aplikasi ini, pengguna
+                        dapat mencatat aktivitas kerja mereka dan memonitor waktu yang dihabiskan untuk setiap tugas
+                        atau proyek.</span></p><a class="btn btn-primary fs-5 py-2 px-4" role="button"
+                    style="margin-top: 15px;" href="<?= base_url('login') ?>">Login&nbsp;&nbsp;<i
+                        class="far fa-arrow-alt-circle-right"></i></a>
             </div>
         </div>
     </section>
