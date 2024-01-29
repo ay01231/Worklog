@@ -38,7 +38,7 @@ Dokumentasi:
 ************
 
 Dokumentasi pelaksanaan Mini Project dengan implementasi Sprint dapat dilihat pada Notion berikut:
-`Time Tracker Apps - Squad 3 <https://elated-decade-a79.notion.site/Time-Tracker-Apps-Team-3-37d09258985943db8573210b76e01ce7>`
+`Time Tracker Apps - Squad 3 <https://elated-decade-a79.notion.site/Time-Tracker-Apps-Team-3-37d09258985943db8573210b76e01ce7>`_
 
 **********************
 License (CodeIgniter):
