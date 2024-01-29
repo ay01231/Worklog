@@ -225,5 +225,10 @@
         table.buttons().appendTo('#example_wrapper .col-md-6:eq(0) btn btn-primary');
     });
 </script>
+<script>
+    // Set max date to today
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById("filterDate").setAttribute("max", today);
+</script>
 
 </html>
